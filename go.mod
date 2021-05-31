@@ -1,4 +1,4 @@
-module botdesign
+module github.com/prmstphn/botdesign
 
 go 1.16
 
