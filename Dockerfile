@@ -1,4 +1,4 @@
-FROM golang:1.16.2-alpine3.12
+FROM scratch
 
 # Set the Current Working Directory inside the container
 #WORKDIR $GOPATH/src/botdesign
