@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: botdesign-api
+  labels:
+    app: botdesign-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: botdesign-api
+  template:
+    metadata:
+      labels:
+        app: botdesign-api
+    spec:
+      containers:
+      - name: botdesign-api
+        image: botdesign
+        ports:
+        - containerPort: 8080
+        env:
+        - name: TRY_FIRST_SECRECT
+          valueFrom:
+            secretKeyRef:
+              name: botdesign-api-secret
+              key: firstsecrect
+        - name: TEST_CONFIG_URL
+          valueFrom: 
+            configMapKeyRef:
+              name: botdesign-api-configmap
+              key: botdesign-api_url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: botdesign-api-service
+spec:
+  selector:
+    app: botdesign-api
+  type: LoadBalancer  
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30000
