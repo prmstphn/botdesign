@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+
 	//"inittest/stringutil"
 	"net/http"
 
@@ -36,7 +37,7 @@ func main() {
 	router.POST("/", PostMethod)
 	router.GET("/", GetMethod)
 
-	listenPort := "4000"
+	listenPort := "8080"
 	// Listen and Server on the LocalHost:Port
 	router.Run(":" + listenPort)
 

@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: botdesign-api
-        image: botdesign
+        image: prmstphn/botdesign:s2
         ports:
-        - containerPort: 8080
+        - containerPort: 4000
         env:
         - name: TRY_FIRST_SECRECT
           valueFrom:
