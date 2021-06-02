@@ -18,7 +18,8 @@ spec:
       - name: botdesign-api
         image: prmstphn/botdesign:s2
         ports:
-        - containerPort: 4000
+        - containerPort: 8080
+        imagePullPolicy: Always
         env:
         - name: TRY_FIRST_SECRECT
           valueFrom:
