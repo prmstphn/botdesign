@@ -4,7 +4,7 @@ FROM scratch
 #WORKDIR $GOPATH/src/botdesign
 
 # Copy everything from the current directory to the PWD (Present Working Directory) inside the container
-COPY . .
+COPY ./botdesign .
 
 # Download all the dependencies
 #RUN go get -d -v ./...
